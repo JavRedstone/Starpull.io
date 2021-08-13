@@ -1,0 +1,11 @@
+Key: Definition
+---------------
+
+INIT: Initialization of an object
+DROP: Deletion of an object
+LISTEN: Server side port listening
+CONNECT: User connects to the server
+DISCONNECT: User disconnects from the server
+JOIN: User joins a particular room
+LEAVE: User leaves a particular room
+NAME: User logs a nickname

@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+
+            @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC&display=swap');
+
+            @keyframes logo {
+                from {opacity: 0;}
+                to {opacity: 1;}
+            }
+
+            @keyframes mainWrapper {
+                from {opacity: 0; top: 100%}
+                to {opacity: 1; top: 35%}
+            }
+
+            @keyframes leftWrapper {
+                from {opacity: 0; left: -20%}
+                to {opacity: 1; left: 0%}
+            }
+
+            @keyframes rightWrapper {
+                from {opacity: 0; right: -20%}
+                to {opacity: 1; right: 0%}
+            }
+
+            @keyframes sun {
+                0% {border: 10px solid yellow;}
+                50% {border: 100px solid yellow;}
+                100% {border: 10px solid yellow;}
+            }
+
+            @keyframes radarSun {
+                0% {border: 1px solid yellow;}
+                50% {border: 5px solid yellow;}
+                100% {border: 1px solid yellow;}
+            }
+
+            body, input, textarea, button {
+                font-family: 'Alegreya Sans SC', sans-serif;
+                color: white;
+
+                background-color: black;
+
+                overflow: hidden;
+
+                cursor: crosshair;
+            }
+
+            #homebody {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0%;
+                top: 0%;
+            }
+
+            #logo {
+                position: absolute;
+                width: 60%;
+                height: 15%;
+                left: 20%;
+                top: 10%;
+
+                background-image: url("https://i.imgur.com/1UdXET7.png");
+                background-size: 100%;
+                background-repeat: no-repeat;
+
+                animation-name: logo;
+                animation-duration: 6s;
+            }
+
+            #starWrapper {
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                top: 0%;
+                left: 0%;
+
+                z-index: -2;
+            }
+
+            star {
+                position: absolute;
+                
+                border-radius: 100%;
+            }
+
+            #mainWrapper {
+                position: fixed;
+                width: 25%;
+                height: 50%;
+                left: 37.5%;
+                top: 35%;
+                
+                background-color: rgba(15, 0, 148, 0.3);
+                border-radius: 10px;
+                border: 2px solid transparent;
+                box-shadow: 0px 0px 15px rgba(15, 0, 148, 0.5);
+                
+                animation-name: mainWrapper;
+                animation-duration: 3s;
+
+                transition-duration: 1s;
+            }
+
+            #mainWrapper:hover {
+                border: 2px solid blue;
+            }
+
+            #leftWrapper {
+                position: fixed;
+                width: 20%;
+                height: 90%;
+                left: 0%;
+                top: 5%;
+
+                background-color: rgba(15, 0, 148, 0.3);
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                border: 2px solid transparent;
+                box-shadow: 0px 0px 15px rgba(19, 0, 185, 0.5);
+
+                animation-name: leftWrapper;
+                animation-duration: 3s;
+
+                transition-duration: 1s;
+            }
+
+            #leftWrapper:hover {
+                border: 2px solid blue;
+            }
+
+            #rightWrapper {
+                position: fixed;
+                width: 20%;
+                height: 90%;
+                right: 0%;
+                top: 5%;
+
+                background-color: rgba(15, 0, 148, 0.3);
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+                border: 2px solid transparent;
+                box-shadow: 0px 0px 15px rgba(15, 0, 148, 0.5);
+
+                animation-name: rightWrapper;
+                animation-duration: 3s;
+
+                transition-duration: 1s;
+            }
+
+            #rightWrapper:hover {
+                border: 2px solid blue;
+            }
+
+            #mainWrapper2 {
+                position: absolute;
+                width: 80%;
+                height: 80%;
+                left: 10%;
+                top: 10%;
+                
+                background-color: rgba(0, 27, 148, 0.3);
+                border-radius: 10px;
+            }
+
+            #mainWrapper3 {
+                position: absolute;
+                width: 80%;
+                height: 20%;
+                left: 10%;
+                top: 10%;
+                
+                background-color: rgba(0, 39, 211, 0.3);
+                border-radius: 10px;
+            }
+
+            #userName {
+                position: absolute;
+                width: 80%;
+                height: 50%;
+                left: 10%;
+                top: 25%;
+
+                background-color: rgba(0, 39, 211, 0.7);
+                border: none;
+                outline: none;
+
+                font-size: 120%;
+                text-align: center;
+                letter-spacing: 1%;
+            }
+
+            #userName::placeholder {
+                color: white;
+            }
+
+            #userName:focus {
+                outline:rgb(0, 67, 211) solid 2px;
+            }
+
+            #mainWrapper4 {
+                position: absolute;
+                width: 80%;
+                height: 20%;
+                left: 10%;
+                top: 40%;
+                
+                background-color: rgba(0, 39, 211, 0.3);
+                border-radius: 10px;
+            }
+
+            #gameID {
+                position: absolute;
+                width: 80%;
+                height: 50%;
+                left: 10%;
+                top: 25%;
+
+                background-color: rgba(0, 39, 211, 0.7);
+                border: none;
+                outline: none;
+
+                font-size: 120%;
+                text-align: center;
+                letter-spacing: 1%;
+            }
+
+            #gameID::placeholder {
+                color: white;
+            }
+
+            #gameID:focus {
+                outline:rgb(0, 67, 211) solid 2px;
+            }
+
+            #play {
+                position: absolute;
+                width: 40%;
+                height: 20%;
+                left: 30%;
+                top: 70%;
+                
+                background-color: rgba(0, 39, 211, 0.3);
+                border-radius: 10px;
+                border: none;
+
+                color: white;
+                font-size: 200%;
+            }
+
+            #play:hover {
+                background-color: rgba(0, 39, 211, 0.4);
+            }
+
+            #leftWrapper2 {
+                position: absolute;
+                width: 80%;
+                height: 60%;
+                left: 10%;
+                top: 5%;
+                
+                background-color: rgba(0, 27, 148, 0.3);
+                border-radius: 10px;
+            }
+
+            #leftWrapper3 {
+                position: absolute;
+                width: 80%;
+                height: 5%;
+                left: 10%;
+                top: 70%;
+                
+                background-color: rgba(0, 27, 148, 0.3);
+                border-radius: 10px;
+            }
+
+            #leftWrapper4 {
+                position: absolute;
+                width: 80%;
+                height: 15%;
+                left: 10%;
+                top: 80%;
+                
+                background-color: rgba(0, 27, 148, 0.3);
+                border-radius: 10px;
+            }
+
+            #updateTitle {
+                position: absolute;
+                width: 80%;
+                height: 8%;
+                left: 10%;
+                top: 5%;
+                
+                background-color: rgba(0, 27, 148, 0.4);
+                border-radius: 10px;
+
+                text-align: center;
+                font-style: italic;
+                font-weight: bold;
+                font-size: 150%;
+            }
+
+            #updateContent {
+                position: absolute;
+                width: 80%;
+                height: 70%;
+                left: 10%;
+                top: 20%;
+                
+                background-color: rgba(0, 27, 148, 0.4);
+                border-radius: 10px;
+
+                text-align: center;
+                font-size: 80%;
+            }
+
+            #versionContent {
+                position: absolute;
+                width: 80%;
+                height: 90%;
+                left: 10%;
+                top: 5%;
+                
+                background-color: rgba(0, 27, 148, 0.4);
+                border-radius: 10px;
+
+                text-align: center;
+                font-size: 150%;
+            }
+
+            #discord, #reddit, #wiki {
+                position: absolute;
+                width: 25%;
+                height: 80%;
+                left: 5%;
+                top: 10%;
+                
+                background-color: rgba(0, 27, 148, 0.4);
+                border-radius: 10px;
+                border: 2px solid blue;
+
+                text-align: center;
+                font-size: 120%;
+
+                cursor: pointer;
+            }
+
+            #discord {
+                font-size: 80%;    
+            }
+
+            #reddit {
+                left: 37.5%;
+                font-size: 90%; 
+            }
+
+            #wiki {
+                left: 70%;
+            }
+
+            #discord:hover, #reddit:hover, #wiki:hover {
+                border: 2px solid rgb(75, 132, 255);
+            }
+
+            #rightWrapper2 {
+                position: absolute;
+                width: 80%;
+                height: 50%;
+                left: 10%;
+                top: 5%;
+                
+                background-color: rgba(0, 27, 148, 0.3);
+                border-radius: 10px;
+            }
+
+            #serverList {
+                position: absolute;
+                width: 80%;
+                height: 90%;
+                left: 10%;
+                top: 5%;
+
+                border-collapse: collapse;
+
+                color: white;
+                text-align: center;
+            }
+
+            #serverList td, #serverList th {
+                border: 1px solid white;
+            }
+
+            #serverList tr:nth-child(even){
+                background-color: rgba(0, 27, 148, 0.3);
+            }
+
+            #serverList th {
+                background-color: rgba(47, 85, 255, 0.8);
+                height: 30%;
+            }
+
+            #map {
+                position: absolute;
+                
+                box-shadow: 0px 0px 100px red;
+
+                display: none;
+            }
+
+            #sun {
+                position: absolute;
+                width: 8%;
+                height: 8%;
+                left: 46%;
+                top: 46%;
+
+                background-color: orangered;
+                border-radius: 100%;
+                box-sizing: border-box;
+
+                animation-name: sun;
+                animation-iteration-count: infinite;
+                animation-duration: 2s;
+            }
+
+            player, asteroid, junk, shooter, laser {
+                position: absolute;
+            }
+
+            name {
+                position: absolute;
+            }
+
+            #rope, rope {
+                position: absolute;
+                width: 8px;
+
+                display: none;
+            }
+
+            #radar {
+                position: absolute;
+                width: 200px;
+                height: 200px;
+                right: 10px;
+                bottom: 10px;
+
+                border: 1px solid blue;
+
+                background-color: rgba(0, 27, 148, 0.2);
+
+                display: none;
+            }
+
+            #radarSun {
+                position: absolute;
+                width: 8%;
+                height: 8%;
+                left: 46%;
+                top: 46%;
+
+                background-color: orangered;
+                border-radius: 100%;
+                box-sizing: border-box;
+
+                animation-name: radarSun;
+                animation-iteration-count: infinite;
+                animation-duration: 2s;
+            }
+
+            radarP {
+                position: absolute;
+                width: 4px;
+                height: 4px;
+
+                background-color: red;
+                border-radius: 100%;
+
+                box-shadow: 0px 0px white;
+            }
+
+            radarA {
+                position: absolute;
+                width: 6px;
+                height: 6px;
+
+                background-color: gray;
+                border-radius: 100%;
+
+                box-shadow: 0px 0px white;
+            }
+
+            radarJ {
+                position: absolute;
+                width: 3px;
+                height: 3px;
+
+                background-color: chocolate;
+                border-radius: 100%;
+
+                box-shadow: 0px 0px white;
+            }
+
+            radarS {
+                position: absolute;
+                width: 10px;
+                height: 10px;
+
+                background-color: orangered;
+                border-radius: 100%;
+
+                box-shadow: 0px 0px white;
+            }
+
+            radarL {
+                position: absolute;
+                width: 3px;
+                height: 3px;
+
+                background-color: orange;
+                border-radius: 100%;
+
+                box-shadow: 0px 0px white;
+            }
+
+            #self {
+                position: absolute;
+
+                display: none;
+            }
+
+            #stats {
+                position: absolute;
+                left: 0%;
+                top: 0%;
+                width: 20%;
+                height: 35%;
+
+                font-size: 300%;
+
+                display: none;
+            }
+
+            #tiertext {
+                position: absolute;
+                left: 10%;
+                top: 3%;
+            }
+
+            #tierimg {
+                position: absolute;
+                left: 60%;
+                top: 3%;
+            }
+
+            #shieldbar, #energybar, #junkbar {
+                position: absolute;
+                width: 80%;
+                height: 10%;
+                left: 10%;
+                top: 30%;
+
+                border-radius: 10px;                
+                background-color: rgba(0, 116, 211, 0.7);
+                border: 2px solid rgb(0, 116, 211);
+            }
+
+            #energybar {
+                left: 10%;
+                top: 50%;
+                
+                background-color: rgba(194, 178, 128, 0.7);
+                border: 2px solid rgb(194, 178, 128);
+            }
+
+            #junkbar {
+                left: 10%;
+                top: 70%;
+                
+                background-color:rgba(105,105,105, 0.7);
+                border: 2px solid rgb(105,105,105);
+            }
+
+            #shieldfill, #energyfill, #junkfill {
+                position: absolute;
+                height: 100%;
+
+                border-radius: 10px;
+
+                background-color: skyblue;
+            }
+
+            #energyfill {                
+                background-color: gold;
+            }
+
+            #junkfill {                
+                background-color: gray;
+            }
+
+            #controlMenu {
+                position: absolute;
+                width: 16%;
+                height: 50%;
+                left: 2%;
+                top: 45%;
+
+                background-color: rgba(0, 39, 211, 0.2);
+                border: 2px solid blue;
+
+                text-align: center;
+
+                display: none;
+            }
+
+            #controlMenuOK {
+                position: absolute;
+                width: 50%;
+                height: 10%;
+                left: 25%;
+                top: 85%;
+
+                background-color: rgba(0, 39, 211, 0.4);
+                border: 2px solid blue;
+            }
+
+            #controlMenuOK:hover {
+                background-color: rgba(0, 39, 211, 0.6);
+            }
+
+            #win {
+                position: absolute;
+                width: 60%;
+                height: 80%;
+                left: 20%;
+                top: 10%;
+
+                background-color: rgba(0, 39, 211, 0.2);
+                border: 2px solid blue;
+
+                font-size: 500%;
+
+                display: none;
+            }
+
+            #winOK {
+                position: absolute;
+                width: 50%;
+                height: 10%;
+                left: 25%;
+                top: 70%;
+
+                background-color: rgba(0, 39, 211, 0.4);
+                border: 2px solid blue;
+
+                font-size: 150%;
+
+                display: none;
+            }
+
+            #winOK:hover {
+                background-color: rgba(0, 39, 211, 0.6);
+            }
+
+            #die {
+                position: absolute;
+                width: 60%;
+                height: 80%;
+                left: 20%;
+                top: 10%;
+
+                background-color: rgba(0, 39, 211, 0.2);
+                border: 2px solid blue;
+
+                font-size: 500%;
+
+                display: none;
+            }
+
+            #dieOK {
+                position: absolute;
+                width: 50%;
+                height: 10%;
+                left: 25%;
+                top: 70%;
+
+                background-color: rgba(0, 39, 211, 0.4);
+                border: 2px solid blue;
+
+                font-size: 150%;
+
+                display: none;
+            }
+
+            #dieOK:hover {
+                background-color: rgba(0, 39, 211, 0.6);
+            }
+
+        </style>
+    </head>
+    <body oncontextmenu="return false;" onload="init();">            
+        <div id="starWrapper"></div>
+        <div id="homebody">
+            <div id="logo"></div>
+            <div id="mainWrapper">
+                <div id="mainWrapper2">
+                <div id="mainWrapper3">
+                    <input type="text" id="userName" maxlength="16" placeholder="Enter Your Nickname" autocomplete="off">
+                </div>
+                <div id="mainWrapper4">
+                    <input type="number" id="gameID" maxlength="4" max="9999" min="0" placeholder="Optional GameID" autocomplete="off">
+                </div>
+                <button id="play" onclick="submitForm()">PLAY</button>
+                </div>
+            </div>
+            <div id="leftWrapper">
+                <div id="leftWrapper2">
+                    <div id="updateTitle">Update Board</div>
+                    <div id="updateContent"></div>
+                </div>
+                <div id="leftWrapper3">
+                    <div id="versionContent">Version: Alpha</div>
+                </div>
+                <div id="leftWrapper4">
+                    <a href=" https://discord.gg/sXVUHqztuq" target="_blank">
+                        <button id="discord">Discord</button>
+                    </a>
+                    <a href="https://www.reddit.com/r/Starpull/" target="_blank">
+                        <button id="reddit">Reddit</button>
+                    </a>
+                    <a href="https://official-starpullio.fandom.com/wiki/Official_Starpull.io_Wiki" target="_blank">
+                        <button id="wiki">Wiki</button>
+                    </a>
+                </div>
+            </div>
+            <div id="rightWrapper">
+                <div id="rightWrapper2">
+                    <table id="serverList">
+                        <tr>
+                            <th>GameID</th>
+                            <th>Progress</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="map">
+            <div id="sun"></div>
+        </div>
+
+        <div id="radar">
+            <div id="radarSun"></div>
+        </div>
+
+        <img id="self">
+
+        <div id="rope"></div>
+
+        <div id="stats">
+            <div id="tiertext"></div>
+            <img id="tierimg">
+            <div id="shieldbar">
+                <div id="shieldfill"></div>
+            </div>
+            <div id="energybar">
+                <div id="energyfill"></div>
+            </div>
+            <div id="junkbar">
+                <div id="junkfill"></div>
+            </div>
+        </div>
+
+        <div id="controlMenu">
+            <h1>Controls</h1>
+            <p>-----------------------------------</p>
+            <p>• Press W to pick an asteroid •</p>
+            <p>• Press E to throw an asteroid •</p>
+            <p>• Press Q to drop a piece of junk •</p>
+            <button id="controlMenuOK" onclick="okControl()">Got it</button>
+        </div>
+
+        <button id="win">
+            <h1>You Win!</h1>
+            <button id="winOK" onclick = "location.reload();">Yay!</button>
+        </button>
+
+        <button id="die">
+            <h1>You Died!</h1>
+            <button id="dieOK" onclick = "respawn();">Respawn [Doubleclick]</button>
+        </button>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.3/socket.io.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+
+        <script>
+
+            // Background
+
+            let starWrap = document.getElementById("starWrapper");
+
+            // Home page
+
+            let serverList = document.getElementById("serverList");
+
+            // Game page
+
+            let map = document.getElementById("map");
+
+            let radar = document.getElementById("radar");
+
+            let self = document.getElementById("self");
+
+            let rope = document.getElementById("rope");
+
+            let stats = document.getElementById("stats");
+            let tiertext = document.getElementById("tiertext");
+            let tierimg = document.getElementById("tierimg");
+            let shieldfill = document.getElementById("shieldfill");
+            let energyfill = document.getElementById("energyfill");
+            let junkfill = document.getElementById("junkfill");
+
+            let controlMenu = document.getElementById("controlMenu");
+
+            let win = document.getElementById("win");
+            let winOK = document.getElementById("winOK");
+
+            let die = document.getElementById("die");
+            let dieOK = document.getElementById("dieOK");
+
+            // socketIO
+
+            var socket = io();
+
+            // Import functions
+            
+            const calcIm = () => {
+                sx=window.innerWidth;
+                sy=window.innerHeight;
+                mx=sx/2;
+                my=sy/2;
+                return({sx:sx,sy:sy,mx:mx,my:my});
+            };
+
+            const calcAng = (x, y) => {
+                return Math.atan2(y, x);
+            };
+
+            const calcDist = (a, b, x, y) => {
+                return Math.sqrt(Math.pow(x-a,2) + Math.pow(y-b,2));
+            };
+
+            // OnLoad
+
+            const init = () => {
+                // Stars
+                const stars = () => {
+                    const star = document.createElement("star")
+                    starWrap.append(star);
+                    star.style.top=Math.random()*100+"%";
+                    star.style.left=Math.random()*100+"%";
+                    star.style.width=Math.random()*3+"px";
+                    star.style.height=star.style.width;
+                    let starcolour = Math.random()*3;
+                    if (starcolour >= 0 && starcolour < 2.9) star.style.backgroundColor="white";
+                    else if (starcolour >= 2.9 && starcolour < 2.95) star.style.backgroundColor="red";
+                    else star.style.backgroundColor="blue";
+                }
+
+                const removeStars = () => {
+                    while (starWrap.lastElementChild) starWrap.removeChild(starWrap.lastElementChild);
+                };
+
+                const starfield = () => {
+                    removeStars();
+                    for(let i = 0; i < 1000; i++) stars()
+                };
+
+                starfield();
+
+                // Serverlist
+                socket.emit('A');
+            };
+
+            // On A
+
+            socket.on('A', (msg) => {
+                let roomCount = msg.length;
+                for(let i = 0; i < roomCount; i++){
+                    let room = msg[i];
+                    var roomProg;
+
+                    if(room.progress=="S") roomProg = "Starting";
+                    else if(room.progress=="R") roomProg = "Running";
+                    else if(room.progress=="E") roomProg = "Ending";
+
+                    var row = serverList.insertRow(1);
+                    row.insertCell(0).innerHTML = room.id;
+                    var cell2 = row.insertCell(1).innerHTML = roomProg;
+                }
+                serverList.style.height = roomCount*12+"%";
+            });
+
+            // On H
+
+            socket.on('H', () => {
+                win.style.display = "inline-block";
+                winOK.style.display = "inline-block";
+                self.style.display = "none";
+                map.style.display = "none";
+                radar.style.display = "none";
+                stats.style.display = "none";
+                controlMenu.style.display = "none";
+            });
+
+            // On I
+
+            socket.on('I', () => {
+                die.style.display = "inline-block";
+                dieOK.style.display = "inline-block";
+                self.style.display = "none";
+                map.style.display = "none";
+                radar.style.display = "none";
+                stats.style.display = "none";
+                controlMenu.style.display = "none";
+            });
+
+            // Respawn
+
+            const respawn = () => {
+                socket.emit('I');
+                die.style.display = "none";
+                dieOK.style.display = "none";
+                unhide();
+                controlMenu.style.display = "none";
+            };
+            
+
+            // Mousemove
+
+            document.body.addEventListener('mousemove', function(event) {             
+                socket.emit('B', [event.clientX, event.clientY, calcIm().mx, calcIm().my]);
+            });
+
+            // Form Submission
+
+            var playpressed = false;
+
+            const submitForm = () => {
+                playpressed = true;
+
+                homebody = document.getElementById("homebody");
+                homebody.style.display = "none";
+
+                socket.emit('C', { name: document.getElementById("userName").value, room: document.getElementById("gameID").value });
+            
+                unhide();
+            };
+
+            const unhide = () => {
+                map.style.display = "inline-block";
+                map.style.zIndex = 0;
+
+                radar.style.display = "inline-block";
+                radar.style.zIndex = 2;
+
+                self.style.display = "inline-block";
+                self.style.zIndex = 2;
+                
+                stats.style.zIndex = 2;
+                stats.style.display = "inline-block";
+
+                controlMenu.style.zIndex = 2;
+                controlMenu.style.display = "inline-block";
+            };
+
+            // OK Controls
+
+            const okControl = () => {
+                controlMenu.style.display = "none";
+            };
+
+            // Game function
+
+            // On D
+            socket.on('D', (msg) => {
+                map.style.width = msg.maps[0].size + "px";
+                map.style.height = map.style.width;
+
+                while (map.lastElementChild && map.lastElementChild != document.getElementById("sun")) map.removeChild(map.lastElementChild);
+                while (radar.lastElementChild && radar.lastElementChild != document.getElementById("radarSun")) radar.removeChild(radar.lastElementChild);
+                for (var ship of msg.ships) {
+                    // Global settings
+                    let radarP = document.createElement("radarP");
+                    radar.append(radarP);
+                    radarP.style.left = ship.position.x/(msg.maps[0].size/200) - 2 + "px";
+                    radarP.style.top = ship.position.y/(msg.maps[0].size/200) - 2 + "px";
+                    // Enemy ship only
+                    if (ship.sid != socket.id) {
+                        let shi = document.createElement("player");
+                        map.append(shi);
+                        let shiIMG = document.createElement("IMG");
+                        shi.append(shiIMG);
+                        shiIMG.src = ship.specs.image;
+                        shiIMG.style.transform = `rotate(${ship.rotation}deg)`;
+                        shi.style.left = ship.position.x - ship.specs.sizex / 2 + "px";
+                        shi.style.top = ship.position.y - ship.specs.sizey / 2 + "px";
+
+                        let name = document.createElement("name");
+                        map.append(name);
+                        name.innerHTML = ship.name;
+                        name.style.left = ship.position.x - ship.specs.sizex / 2 + "px";
+                        name.style.top = ship.position.y + ship.specs.sizey / 2 + 5 + "px";
+
+                        let ropeP = document.createElement("rope");
+                        if (ship.getAst != null){
+                            map.append(ropeP);
+                            ropeP.style.display = "inline-block";
+                            ropeP.style.zIndex = -1;
+                            ropeP.style.backgroundImage = `url(${msg.ropeIMG})`;
+                            ropeP.style.transformOrigin = "center bottom";
+                            ropeP.style.transform = `rotate(${ship.astAngle}deg)`;
+                            ropeP.style.height = ship.astDist + "px";
+                            ropeP.style.left = ship.position.x - 4 + "px";
+                            ropeP.style.top = ship.position.y - ship.astDist + "px";
+                        }
+                        else {
+                            ropeP.style.display = "none";
+                        }
+                    }
+                    // Self only
+                    else {
+                        map.style.left = calcIm().mx-ship.position.x + "px";
+                        map.style.top = calcIm().my-ship.position.y + "px";
+                        
+                        radarP.style.backgroundColor = "skyblue";
+
+                        self.src = ship.specs.image;
+                        self.style.transform = `rotate(${ship.rotation}deg)`;
+                        self.style.left = calcIm().mx - ship.specs.sizex / 2 + "px";
+                        self.style.top = calcIm().my - ship.specs.sizey / 2 + "px";
+
+                        tiertext.innerHTML = `Tier ${ship.tier}`;
+                        tierimg.src = ship.specs.imageS;
+                        shieldfill.style.width = ship.shield + "%";
+                        energyfill.style.width = ship.energy + "%";
+                        junkfill.style.width = ship.junk + "%";
+
+                        if (ship.getAst != null){
+                            rope.style.display = "inline-block";
+                            rope.style.zIndex = -1;
+                            rope.style.backgroundImage = `url(${msg.ropeIMG})`;
+                            rope.style.transformOrigin = "center bottom";
+                            rope.style.transform = `rotate(${ship.astAngle}deg)`;
+                            rope.style.height = ship.astDist + "px";
+                            rope.style.left = calcIm().mx - 4 + "px";
+                            rope.style.top = calcIm().my - ship.astDist + "px";
+                        }
+                        else {
+                            rope.style.display = "none";
+                        }
+                    }
+                }
+                // Asteroids
+                for(var asteroid of msg.asteroids) {
+                    let ast = document.createElement("asteroid");
+                    map.append(ast);
+                    let astIMG = document.createElement("IMG");
+                    ast.append(astIMG);
+                    const rot = 90 + calcAng(asteroid.position.x-msg.maps[0].size/2, asteroid.position.y-msg.maps[0].size/2) * 180 / Math.PI;
+                    astIMG.src = asteroid.specs.image;
+                    astIMG.style.transform = `rotate(${rot}deg)`;
+                    ast.style.left = asteroid.position.x - asteroid.specs.size / 2 + "px";
+                    ast.style.top = asteroid.position.y - asteroid.specs.size / 2 + "px";
+                    
+
+                    let radarA = document.createElement("radarA");
+                    radar.append(radarA);
+                    radarA.style.left = asteroid.position.x/(msg.maps[0].size/200) - 3 + "px";
+                    radarA.style.top = asteroid.position.y/(msg.maps[0].size/200) - 3 + "px";
+                }
+                // Junk
+                for(var junk of msg.junks) {
+                    let jun = document.createElement("junk");
+                    map.append(jun);
+                    let junIMG = document.createElement("IMG");
+                    jun.append(junIMG);
+                    junIMG.src = junk.specs.image;
+                    junIMG.style.transform = `rotate(${junk.rotation}deg)`;
+                    jun.style.left = junk.position.x - junk.specs.size / 2 + "px";
+                    jun.style.top = junk.position.y - junk.specs.size / 2 + "px";
+
+                    let radarJ = document.createElement("radarJ");
+                    radar.append(radarJ);
+                    radarJ.style.left = junk.position.x/(msg.maps[0].size/200) - 1.5 + "px";
+                    radarJ.style.top = junk.position.y/(msg.maps[0].size/200) - 1.5 + "px";
+                }
+                // Shooter
+                for(var shooter of msg.shooters) {
+                    let sho = document.createElement("shooter");
+                    map.append(sho);
+                    let shoIMG = document.createElement("IMG");
+                    sho.append(shoIMG);
+                    shoIMG.src = shooter.specs.image;
+                    shoIMG.style.transform = `rotate(${shooter.rotation}deg)`;
+                    sho.style.left = shooter.position.x - shooter.specs.size / 2 + "px";
+                    sho.style.top = shooter.position.y - shooter.specs.size / 2 + "px";
+
+                    let radarS = document.createElement("radarS");
+                    radar.append(radarS);
+                    radarS.style.left = shooter.position.x/(msg.maps[0].size/200) - 5 + "px";
+                    radarS.style.top = shooter.position.y/(msg.maps[0].size/200) - 5 + "px";
+                }
+                // Laser
+                for(var laser of msg.lasers) {
+                    let las = document.createElement("laser");
+                    map.append(las);
+                    let lasIMG = document.createElement("IMG");
+                    las.append(lasIMG);
+                    lasIMG.src = laser.specs.image;
+                    lasIMG.style.transform = `rotate(${laser.rotation}deg)`;
+                    las.style.left = laser.position.x - laser.specs.size / 2 + "px";
+                    las.style.top = laser.position.y - laser.specs.size / 2 + "px";
+
+                    let radarL = document.createElement("radarL");
+                    radar.append(radarL);
+                    radarL.style.left = laser.position.x/(msg.maps[0].size/200) - 1.5 + "px";
+                    radarL.style.top = laser.position.y/(msg.maps[0].size/200) - 1.5 + "px";
+                }
+            });
+
+            // Keydown
+            document.body.addEventListener("keydown", (event) => {
+                if (playpressed) {
+                    event.which == 87 ? socket.emit("E") : void(0);
+                    event.which == 69 ? socket.emit("F") : void(0);
+                    event.which == 81 ? socket.emit("G") : void(0);
+                }
+            })
+        </script>
+    </body>
+</html>

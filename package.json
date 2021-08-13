@@ -1,0 +1,10 @@
+{
+    "name": "starpull",
+    "version": "0.0.1",
+    "description": "Web-based Space Game",
+    "type": "module",
+    "dependencies": {
+        "express": "^4.17.1",
+        "socket.io": "^4.1.3"
+    }
+}

@@ -1,0 +1,12 @@
+Key: Definition
+---------------
+
+A: Called when page is loaded
+B: Called when mouse is moved
+C: Called when user presses PLAY
+D: Called per 10 ms to the socket, from server
+E: Called when user presses 'W', which is to pull the asteroid
+F: Called when user presses 'E', which is to release the asteroid
+G: Called when user presses 'Q', which is to drop a junk
+H: Called when needed to reload the page
+I: Called when user dies, and is needed for the death screen to show up
