@@ -341,6 +341,12 @@ const sendInfo = setInterval(() => {
     }
 }, 10);
 
+const gameOver = setInterval(() => {
+    if (socket.room.progress == 'E' && socket.ship.died) {
+        io.to(socket.id).emit('J');
+    }
+}, 0)
+
 startmove();
 
 startroomMon();
