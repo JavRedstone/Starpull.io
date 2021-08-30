@@ -329,6 +329,12 @@ io.on("connection", (socket) => {
             socket.ship.died = false;
         }
     });
+
+    const gameOver = setInterval(() => {
+        if (socket.room.progress == 'E' && socket.ship.died) {
+            io.to(socket.id).emit('J');
+        }
+    }, 0)
 });
 
 // Continuous functions
@@ -340,12 +346,6 @@ const sendInfo = setInterval(() => {
         }
     }
 }, 10);
-
-const gameOver = setInterval(() => {
-    if (socket.room.progress == 'E' && socket.ship.died) {
-        io.to(socket.id).emit('J');
-    }
-}, 0)
 
 startmove();
 
