@@ -457,7 +457,7 @@ const die = (ship) => {
 
 // Server init
 
-const port = 443;
+const port = 80;
 
 server.listen(port, ()=>{
     console.log(`LISTEN: Port - ${port} -- SUCCESS`);
